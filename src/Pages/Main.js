@@ -35,6 +35,55 @@ const Contact = styled(NavLink)`
   z-index: 100;
 `;
 
+const Blog = styled(NavLink)`
+  color: ${(props) => props.theme.text};
+  position: absolute;
+  top: 50%;
+  right: calc(1rem + 2vw);
+  text-decoration: none;
+  transform: rotate(90deg) translateX(-70%);
+  z-index: 100;
+
+  transition: all 0.5s ease;
+`;
+
+const Projects = styled(NavLink)`
+  color: ${(props) => props.theme.text};
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: rotate(-90deg) translateX(50%);
+  text-decoration: none;
+  z-index: 100;
+
+  transition: all 0.5s ease;
+`;
+
+const BottomBar = styled.div`
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: space-evenly;
+`;
+
+const About = styled(NavLink)`
+  color: ${(props) => props.theme.text};
+  text-decoration: none;
+  z-index: 100;
+  text-decoration: none;
+  transition: all 0.5s ease;
+`;
+const Skills = styled(NavLink)`
+  color: ${(props) => props.theme.text};
+  z-index: 100;
+  text-decoration: none;
+  transition: all 0.5s ease;
+`;
+
 const Main = () => {
   return (
     <MainContainer>
@@ -47,8 +96,25 @@ const Main = () => {
           target="_blank"
           to={{ pathname: "mailto: bycho1991@gmail.com" }}
         >
-          <h3>Email me</h3>
+          <h2>Email me</h2>
         </Contact>
+
+        <Blog to="/blog">
+          <h2>Blog</h2>
+        </Blog>
+
+        <Projects to="/projects">
+          <h2>Projects</h2>
+        </Projects>
+
+        <BottomBar>
+          <About to="/about">
+            <h2>About</h2>
+          </About>
+          <Skills to="/skills">
+            <h2>Skills</h2>
+          </Skills>
+        </BottomBar>
       </Container>
     </MainContainer>
   );

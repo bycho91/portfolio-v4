@@ -15,7 +15,7 @@ const IconsContainer = styled.div`
   z-index: 100;
 
   & > *:not(:last-child) {
-    margin: 0.5rem 0;
+    margin: 0.2rem 0;
   }
 `;
 
@@ -34,7 +34,7 @@ const SocialIcons = () => {
           target="_blank"
           to={{ pathname: "https://github.com/bycho91" }}
         >
-          <Github width={25} height={25} fill="currentColor" />
+          <Github width={20} height={20} fill="currentColor" />
         </NavLink>
       </div>
       <div>
@@ -43,7 +43,7 @@ const SocialIcons = () => {
           target="_blank"
           to={{ pathname: "https://github.com/bycho91" }}
         >
-          <Twitter width={25} height={25} fill="currentColor" />
+          <Twitter width={20} height={20} fill="currentColor" />
         </NavLink>
       </div>
       <div>
@@ -52,7 +52,7 @@ const SocialIcons = () => {
           target="_blank"
           to={{ pathname: "https://github.com/bycho91" }}
         >
-          <Facebook width={25} height={25} fill="currentColor" />
+          <Facebook width={20} height={20} fill="currentColor" />
         </NavLink>
       </div>
       <div>
@@ -61,7 +61,7 @@ const SocialIcons = () => {
           target="_blank"
           to={{ pathname: "https://github.com/bycho91" }}
         >
-          <Youtube width={25} height={25} fill="currentColor" />
+          <Youtube width={20} height={20} fill="currentColor" />
         </NavLink>
       </div>
       <Line />
