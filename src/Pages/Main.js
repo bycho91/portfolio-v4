@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 
 import { Logo, PowerButton, SocialIcons } from "../components";
+import { YinYang } from "./AllSvgs";
+import {ImCool, ImCool2} from 'react-icons/im'
 
 const MainContainer = styled.section`
   background: ${(props) => props.theme.body};
@@ -84,35 +86,72 @@ const Skills = styled(NavLink)`
   transition: all 0.5s ease;
 `;
 
+const rotate = keyframes`
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+const Center = styled.button`
+  position: absolute;
+  left: ${props => props.clicked ? '92%' : '50%'};
+  top: ${props => props.clicked ? '85%' : '50%'};
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+
+  &>:first-child {
+    animation: ${rotate} infinite 5s linear;
+  }
+`;
+
 const Main = () => {
+
+  const [clicked, setClicked] = useState(false);
+
+  const handleClick = () => setClicked(!clicked);
+
   return (
     <MainContainer>
       <Container>
         <PowerButton />
         <Logo />
         <SocialIcons />
-
+        <Center clicked={clicked}>
+          <ImCool size={clicked ? '10vw' : '15vw'} onClick={() => handleClick()} />
+          <span>click me!</span>
+        </Center>
         <Contact
           target="_blank"
           to={{ pathname: "mailto: bycho1991@gmail.com" }}
         >
-          <h2>Email me</h2>
+          <h3>Email me</h3>
         </Contact>
 
         <Blog to="/blog">
-          <h2>Blog</h2>
+          <h3>Blog</h3>
         </Blog>
 
         <Projects to="/projects">
-          <h2>Projects</h2>
+          <h3>Projects</h3>
         </Projects>
 
         <BottomBar>
           <About to="/about">
-            <h2>About</h2>
+            <h3>About</h3>
           </About>
           <Skills to="/skills">
-            <h2>Skills</h2>
+            <h3>Skills</h3>
           </Skills>
         </BottomBar>
       </Container>
